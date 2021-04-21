@@ -1,0 +1,106 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<div class="container">
+  <form id="survey-form">
+    <h1 id="title">HOGWARTS HOUSE SORTING SYSTEM SURVEY</h1>
+    <p id="description">Attention all students, please fill out this survey about your Hogwarts house.</p>
+    <hr>
+    <div id="student-info">
+      <div class="info-entry">
+        <label id="name-label" for="name">Name:</label>
+        <input class="text-box" id="name" type="text" name="name" placeholder="Harry Potter" required>
+      </div>
+      <div class="info-entry">
+        <label id="email-label" for="email">Email:</label>
+        <input class="text-box" id="email" type="email" name="email" placeholder="theboywholived@hogwarts.com" required>
+      </div>
+      <div class="info-entry">
+        <label id="number-label" for="number">Year:</label>
+        <input class="text-box" id="number" type="number" name="number" required min="1" max="7" placeholder="7">
+      </div>
+    </div>
+    <hr>
+    <div id="questionnaire">
+      <div class="form-entry">
+        <label for="house" class="q-label">&#10023; What is your Hogwarts house? &#10023;</label>
+        <br>
+        <select id="dropdown" name="house" required class="drop-box">
+          <option disabled value selected>Select a house</option>
+          <option value="gryffindor">Gryffindor</option>
+          <option value="slytherin">Slytherin</option>
+          <option value="hufflepuff">Hufflepuff</option>
+          <option value="ravenclaw">Ravenclaw</option>
+        </select>
+      </div>
+      <div class="form-entry">
+        <label for="house-opinion" class="q-label">&#10023; How strongly do you feel you belong in your Hogwarts house? &#10023;</label>
+        <br>
+        <span>Not at all</span>
+        <input class="range-box" type="range" name="house-opinion" id="house-opinion" min="1" max="5">
+        <span>Strongly</span>
+      </div>
+      <div class="form-entry">
+        <label for="house-switch" class="q-label">&#10023; If you could switch houses, which would you choose? &#10023;</label>
+        <br>
+        <select id="house-switch" name="house-switch" required class="drop-box">
+          <option disabled value selected>Select a house</option>
+          <option value="none">None</option>
+          <option value="gryffindor">Gryffindor</option>
+          <option value="slytherin">Slytherin</option>
+          <option value="hufflepuff">Hufflepuff</option>
+          <option value="ravenclaw">Ravenclaw</option>
+        </select>
+      </div>
+      <div class="form-entry check">
+        <label for="traits" class="q-label">&#10023; Choose the values you most identify with: &#10023;
+</label>
+        <br>
+        <div class="check-box">
+        <label for="bravery"><input type="checkbox" name="bravery" id="bravery" value="bravery">Bravery</label>
+        <label for="ambition"><input type="checkbox" name="ambition" id="ambition" value="ambition">Ambition</label>
+        <label for="intelligence"><input type="checkbox" name="intelligence" id="intelligence" value="intelligence">Intelligence</label>
+        <label for="hardwork"><input type="checkbox" name="hardwork" id="hardwork" value="hardwork">Hard Work</label>
+        </div>
+        <br>
+        <div class="check-box">
+        <label for="chivalry"><input type="checkbox" name="chivalry" id="chivalry" value="chivalry">Chivalry</label>
+        <label for="resourcefulness"><input type="checkbox" name="resourcefulness" id="resourcefulness" value="resourcefulness">Resourcefulness</label>
+        <label for="loyalty"><input type="checkbox" name="loyalty" id="loyalty" value="loyalty">Loyalty</label>
+        <label for="wit"><input type="checkbox" name="wit" id="wit" value="wit">Wit</label>
+        </div>
+        <br>
+        <div class="check-box">
+        <label for="leadership"><input type="checkbox" name="leadership" id="leadership" value="leadership">Leadership</label>
+        <label for="courage"><input type="checkbox" name="courage" id="courage" value="courage">Courage</label>
+        <label for="creativity"><input type="checkbox" name="creativity" id="creativity" value="creativity">Creativity</label>
+        <label for="patience"><input type="checkbox" name="patience" id="patience" value="patience">Patience</label>
+        </div>
+        <br>
+        <div class="check-box">
+        <label for="knowledge"><input type="checkbox" name="knowledge" id="knowledge" value="knowledge">Knowledge</label>
+        <label for="justice"><input type="checkbox" name="justice" id="justice" value="justice">Justice</label>
+        <label for="nerve"><input type="checkbox" name="nerve" id="nerve" value="nerve">Nerve</label>
+        <label for="cunning"><input type="checkbox" name="cunning" id="cunning" value="cunning">Cunning</label>
+        </div>
+      </div> 
+      <div class="form-entry">
+        <label for="system-opinion" class="q-label">&#10023; Do you find the Hogwarts House Sorting System effective? &#10023;</label>
+        <br>
+        <label for="yes" class="r-label"><input type="radio" name="system-opinion" id="yes" value="yes">Yes</label>
+        <label for="somewhat" class="r-label"><input type="radio" name="system-opinion" id="somewhat" value="somewhat">Somewhat</label>
+        <label for="no" class="r-label"><input type="radio" name="system-opinion" id="no" value="no">No</label>
+      </div>
+      <div class="form-element">
+        <label for="extra" class="q-label">&#10023; Tell us how we can make the system better. &#10023;</label>
+        <br>
+        <textarea id="extra" name="extra" rows="4" cols="60" placeholder="Enter text here"></textarea>
+      </div>
+    </div>
+    <hr>
+    <div class="submit-button">
+       <p class="cap">Draco Dormiens Nunquam Titillandus</p>
+      <button type="submit" id="submit">SUBMIT</button>
+    </div>
+  </form>
+</div>
+<footer><p>&copy; 2020 Paola Garibay</p></footer>
