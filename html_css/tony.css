@@ -1,0 +1,93 @@
+body {
+  background-color: #fbfbf0;
+  font-family: Times New Roman;
+  text-align: center;
+  margin: 20px;
+}
+h1 {
+  color: black;
+  font-size: 75px;
+  display: inline-block;
+  padding: 20px 140px;
+  margin: 20px 0 0 0;
+  background-color: lightgray;
+  border: thin solid black;
+}
+#image {
+  border: thin solid black;
+  max-width: 630px;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+#img-caption {
+  font-size: 20px;
+  background-color: lightgray;
+  display: inline-block;
+  padding: 5px 220px;
+  margin: 10px 0 20px 0;
+  border: thin solid black;
+}
+#sp {
+  max-width: 200px;
+  vertical-align: top;
+  height: auto;
+}
+#tribute-info {
+  outline: thick dotted black;
+  outline-offset: 5px;
+  margin: 15px 40px 40px;
+  line-height: 1.8;
+  background-color: lightgray;
+  overflow: auto;
+  display: inline-block;
+  text-align: left;
+  font-size: 20px;
+}
+h2 {
+  text-align: center;
+}
+p {
+  margin: 25px;
+}
+a:link,
+a:visited {
+  color: #404040;
+}
+a:hover {
+  color: red;
+}
+#link {
+  color: black;
+  margin-top: 5px;
+}
+#quote {
+  font-size: 25px;
+  margin: 5px 0 40px 0;
+  text-align: center;
+}
+#right {
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+#center {
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid black;
+  margin: 0 50px;
+}
+#left {
+  max-width: 260px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+#pics {
+  margin-bottom: 50px;
+}
+#container {
+  display: inline-block;
+}
