@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Viaoda+Libre&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url("https://www.pngitem.com/pimgs/m/276-2765456_hogwarts-crest-transparent-background-hd-png-download.png");
+  background-position: top;
+  background-size: 125px;
+  font-family: 'Consolas', monospace;
+}
+.container {
+  background-color: #EEE8AA;
+  margin: 125px auto 20px auto;
+  width: 60%;
+  border-radius: 30px;
+  opacity: 0.95;
+  border: 1.5px solid gray;
+  text-align: center;
+  padding: 30px;
+}
+#title {
+font-family: 'Viaoda Libre', cursive;
+}
+hr {
+  width: 85%;
+  border: 0.5px solid gray;
+}
+#student-info {
+  text-align: left;
+  padding: 10px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+#questionnaire {
+  padding: 15px 0;
+  margin: 0 auto;
+}
+.text-box, .drop-box {
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family: inherit;
+}
+.text-box {    
+  width: 100%;
+  padding-left: 5px;
+}
+.drop-box {
+  width: 45%;
+}
+.range-box {
+ width: 40%; 
+}
+.info-entry {
+  margin-bottom: 10px;
+}
+.form-entry {
+  padding: 20px 0;
+}
+.q-label {
+  display: block;
+  font-size: 18px;
+}
+.r-label {
+  margin-right: 20px;
+}
+#extra {
+  min-height: 100px;
+  width: 60%;
+  resize: vertical;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.cap {
+  font-family: 'Viaoda Libre', cursive;
+  font-size: 18px;
+  font-weight: bold;
+}
+button {
+  color: white;
+  background-color: gray;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 1px solid white;
+}
+button:hover {
+  background-color: black;
+}
+footer {
+  text-align: center;
+  font-weight: bold;
+  color: gray;
+  background-color: white;
+  width: 200px;
+  margin: 0 auto;
+  opacity: 0.9;
+  border-radius: 4px;
+}
