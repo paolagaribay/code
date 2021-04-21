@@ -28,6 +28,7 @@ CREATE TABLE Salesperson (
  TerritoryID INTEGER,
  PRIMARY KEY(SalespersonID),
  FOREIGN KEY(TerritoryID) REFERENCES Territory);
+             
 /* Create DoesBusinessIn Table */
 CREATE TABLE DoesBusinessIn (
  CustomerID INTEGER,
@@ -60,6 +61,7 @@ CREATE TABLE Orders (
  CustomerID INTEGER,
  PRIMARY KEY(OrderID),
  FOREIGN KEY(CustomerID) REFERENCES Customer);
+             
 /* Create OrderLine Table */
 CREATE TABLE OrderLine (
  OrderID INTEGER,
@@ -83,26 +85,31 @@ SELECT PL.ProductLineName, SUM(P.ProductStandardPrice)
 FROM Product P, ProductLine PL
 WHERE PL.ProductLineID = P.ProductLineID
 group by PL.ProductLineName;
+             
 /* Create View TotalValue */
 CREATE VIEW TotalValue(Product, TotalOrdered) AS
 SELECT P.ProductName, SUM(P.ProductStandardPrice * OL.OrderedQuantity)
 FROM Product P, OrderLine OL
 WHERE P.ProductID = OL.ProductID
 group by P.ProductName;
+             
 /* Create View CustomerData */
 CREATE VIEW CustomerData(Product, Price) AS
 SELECT P.ProductName, P.ProductStandardPrice
 FROM Product P;
+             
 /* Create View Shipment */
 CREATE VIEW Shipment(StatesShipped, AddressCount)AS
 SELECT C.CustomerState, COUNT(*)
 FROM Customer C
 GROUP BY C.CustomerState;
+             
 /* Create View PurchaseHistory */
 CREATE VIEW PurchaseHistory(OrderDate, OrderedQuantity, ProductPrice, ProductName) AS
 SELECT O.OrderDate, OL.OrderedQuantity, P.ProductStandardPrice, P.ProductName
 FROM Orders O, OrderLine OL, Product P
 WHERE O.OrderId = OL.OrderID AND OL.ProductID = P.ProductID;
+             
 /* Insert data into Customer */
 INSERT INTO Customer VALUES (1, 'Contemporary Casuals', '1355 S Hines Blvd', 'Gainesville', 'FL',
 '32601-2871','', '', '');
@@ -126,6 +133,7 @@ INSERT INTO Customer VALUES (14, 'Wild Bills', 'Four Horse Rd', 'Oak Brook', 'Il
 INSERT INTO Customer VALUES (15, 'Janets Collection', 'Janet Lane', 'Virginia Beach', 'VA', '10012', '', '','');
 INSERT INTO Customer VALUES (16, 'ABC Furniture Co.', '152 Geramino Drive', 'Rome', 'NY', '13440', '', '',
 '');
+             
 /* Insert data into Salesperson */
 INSERT INTO Salesperson VALUES (1, 'Doug Henny', '8134445555', 'salesperson?@gmail.com',
 'SALESPERSON', 'SALESPERSON#',1);
@@ -133,12 +141,14 @@ INSERT INTO Salesperson VALUES (2, 'Robert Lewis', '8139264006', '', '', '', 2);
 INSERT INTO Salesperson VALUES (3, 'William Strong', '5053821212', '', '', '', 3);
 INSERT INTO Salesperson VALUES (4, 'Julie Dawson', '4355346677', '', '', '', 4);
 INSERT INTO Salesperson VALUES (5, 'Jacob Winslow', '2238973498', '', '', '', 5);
+             
 /* Insert data into Territory */
 INSERT INTO Territory VALUES (1, 'SouthEast');
 INSERT INTO Territory VALUES (2, 'SouthWest');
 INSERT INTO Territory VALUES (3, 'NorthEast');
 INSERT INTO Territory VALUES (4, 'NorthWest');
 INSERT INTO Territory VALUES (5, 'Central');
+             
 /* Insert data into DoesBusinessIn */
 INSERT INTO DoesBusinessIn VALUES (1, 1);
 INSERT INTO DoesBusinessIn VALUES (2, 2);
@@ -147,6 +157,7 @@ INSERT INTO DoesBusinessIn VALUES (4, 4);
 INSERT INTO DoesBusinessIn VALUES (5, 5);
 INSERT INTO DoesBusinessIn VALUES (6, 1);
 INSERT INTO DoesBusinessIn VALUES (7, 2);
+             
 /* Insert data into Product */
 INSERT INTO Product VALUES (1, 'End Table', 'Cherry', 175, 1, 'table.jpg');
 INSERT INTO Product VALUES (2, 'Coffee Table', 'Natural Ash', 200, 2, '');
@@ -156,10 +167,12 @@ INSERT INTO Product VALUES (5, 'Writers Desk', 'Cherry', 325, 1, '');
 INSERT INTO Product VALUES (6, '8-Drawer Desk', 'White Ash', 750, 2, '');
 INSERT INTO Product VALUES (7, 'Dining Table', 'Natural Ash', 800, 2, '');
 INSERT INTO Product VALUES (8, 'Computer Desk', 'Walnut', 250, 3, '');
+             
 /* Insert data into ProductLine */
 INSERT INTO ProductLine VALUES (1, 'Cherry Tree');
 INSERT INTO ProductLine VALUES (2, 'Scandinavia');
 INSERT INTO ProductLine VALUES (3, 'Country Look');
+             
 /* Insert data into Orders */
 INSERT INTO Orders VALUES (1001, '21/Aug/16', 1);
 INSERT INTO Orders VALUES (1002, '21/Jul/16', 8);
@@ -171,6 +184,7 @@ INSERT INTO Orders VALUES (1007, '27/ Aug/16', 5);
 INSERT INTO Orders VALUES (1008, '30/Oct/16', 12);
 INSERT INTO Orders VALUES (1009, '05/Nov/16', 4);
 INSERT INTO Orders VALUES (1010, '05/Nov/16', 1);
+             
 /* Insert data into OrderLine */
 INSERT INTO OrderLine VALUES (1001, 1, 2, '');
 INSERT INTO OrderLine VALUES (1001, 2, 2, '');
@@ -190,6 +204,7 @@ INSERT INTO OrderLine VALUES (1008, 8, 3, '');
 INSERT INTO OrderLine VALUES (1009, 4, 2, '');
 INSERT INTO OrderLine VALUES (1009, 7, 3, '');
 INSERT INTO OrderLine VALUES (1010, 8, 10, '');
+             
 /* Which products have a standard price of less than $ 275?
  PRODUCT
  END TABLE
@@ -198,6 +213,7 @@ INSERT INTO OrderLine VALUES (1010, 8, 10, '');
 SELECT P.ProductName
 FROM PRODUCT P
 WHERE P.ProductStandardPrice < 275;
+             
 /* List the unit price, product name, and product ID for all products in the Product table.
 PRICE NAME ID
  175 END TABLE 1
@@ -210,6 +226,7 @@ PRICE NAME ID
  250 COMPUTER DESK 8 */
 SELECT P.ProductStandardPrice, P.ProductName, P.ProductID
 FROM PRODUCT P;
+             
 /* What is the average standard price for all products in inventory?
  AVG
  440.625 */
@@ -222,6 +239,7 @@ FROM PRODUCT P;
 SELECT COUNT(*)
 FROM OrderLine OL
 WHERE OL.OrderID = '1004';
+             
 /* Which orders have been placed since 10/ 24/ 2010?
  ORDER
  1001
@@ -237,6 +255,7 @@ WHERE OL.OrderID = '1004';
 SELECT O.OrderID
 FROM Orders O
 WHERE O.OrderDate > '24/OCT/10';
+             
 /* What furniture does COSC3380 carry that isn’t made of cherry?
  PRODUCT
  COFFEE TABLE
@@ -248,6 +267,7 @@ WHERE O.OrderDate > '24/OCT/10';
 SELECT P.ProductName
 FROM Product P
 WHERE P.ProductFinish != 'Cherry';
+             
 /* List product name, finish, and standard price for all desks and all tables
  that cost more than $ 300 in the Product table.
  NAME FINISH PRICE
@@ -259,6 +279,7 @@ SELECT P.ProductName, P.ProductFinish, P.ProductStandardPrice
 FROM Product P
 WHERE P.ProductStandardPrice > 300 AND (P.ProductName LIKE '%Desk%' OR P.ProductName LIKE
 '%Table%');
+             
 /* Which products in the Product table have a standard price between $ 200 and $ 300?
  PRODUCT
  COFFEE TABLE
@@ -266,6 +287,7 @@ WHERE P.ProductStandardPrice > 300 AND (P.ProductName LIKE '%Desk%' OR P.Product
 SELECT P.ProductName
 FROM Product P
 WHERE P.ProductStandardPrice >= 200 AND P.ProductStandardPrice <= 300;
+             
 /* List customer, city, and state for all customers in the Customer table whose address is Florida, Texas,
 California, or Hawaii.
  List the customers alphabetically by state and alphabetically by customer within each state.
@@ -279,6 +301,7 @@ FROM Customer C
 WHERE C.CustomerState = 'FL' OR C.CustomerState = 'TX' OR C.CustomerState = 'CA' OR
 C.CustomerState = 'HI'
 ORDER BY C.CustomerState, C.CustomerName;
+             
 /* Count the number of customers with addresses in each state to which we ship.
  STATE
  FL 2
@@ -293,6 +316,7 @@ ORDER BY C.CustomerState, C.CustomerName;
 SELECT C.CustomerState, COUNT(*)
 FROM Customer C
 GROUP BY C.CustomerState;
+             
 /* Count the number of customers with addresses in each city to which we ship.
  List the cities by state.
  STATE CITY COUNT
@@ -313,6 +337,7 @@ SELECT C.CustomerState, C.CustomerCity, COUNT(C.CustomerCity)
 FROM Customer C
 GROUP BY C.CustomerState, C.CustomerCity
 ORDER BY C.CustomerState, C.CustomerCity;
+             
 /* Find only states with more than one customer.
  STATE
  NY
@@ -322,6 +347,7 @@ SELECT C.CustomerState
 FROM Customer C
 GROUP BY C.CustomerState
 HAVING COUNT(*) > 1;
+             
 /* List, in alphabetical order, the product finish and the average standard price for each finish for
  selected finishes having an average standard price less than 750. 
  FINISH AVG
@@ -334,6 +360,7 @@ FROM Product P
 GROUP BY P.ProductFinish
 HAVING AVG(P.PRODUCTSTANDARDPRICE) < 750
 ORDER BY P.ProductFinish;
+             
 /* What is the total value of orders placed for each furniture product?
 PRODUCT TOTAL VALUE
 End Table 875
